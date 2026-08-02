@@ -423,3 +423,76 @@ body {
     background-color: var(--btn-secondary-hover);
     transform: translateY(-2px);
 }
+
+/* Finish overlay */
+#finish-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#finish-overlay.hidden {
+    display: none;
+}
+
+#finish-overlay video {
+    max-width: 80vw;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+#finish-close-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#finish-close-btn:hover {
+    background: #fff;
+    transform: scale(1.08);
+}
+
+/* Party poppers */
+#confetti-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10001;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    top: -20px;
+    width: 10px;
+    height: 14px;
+    opacity: 0.9;
+    animation: confetti-fall linear forwards;
+}
+
+@keyframes confetti-fall {
+    to {
+        transform: translateY(105vh) rotate(720deg);
+        opacity: 0.7;
+    }
+}
