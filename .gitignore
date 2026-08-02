@@ -1,4 +1,5 @@
-
+# y tf not ignored
+node_modules/
 
 # Ignore local environment files
 .env
