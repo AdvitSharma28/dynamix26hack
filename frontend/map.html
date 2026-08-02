@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>connect</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=EB+Garamond:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <link rel="stylesheet" href="map.css">
+</head>
+
+<body>
+
+    <div id="map"></div>
+
+    <div class="dynamic-island" id="dynamic-island">
+        <div class="island-content">
+            <span class="island-title" id="island-title">Zoomed Close (14)</span>
+            <div class="island-controls">
+                <button type="button" class="island-btn" id="island-zoom-out" title="Zoom Out">Zoom Out</button>
+                <button type="button" class="island-btn" id="island-reset" title="Reset to India">Reset India</button>
+                <button type="button" class="island-btn" id="island-zoom-in" title="Zoom In">Zoom In</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-container">
+
+        <aside class="floating-panel left-panel closed" id="left-panel">
+            <h2 class="section-title">Pin Your Adventure</h2>
+
+            <div class="map-helper">
+                <span>Click anywhere on the map of India to drop a marker and set the coordinates.</span>
+            </div>
+
+            <form id="pin-form">
+
+                <div class="form-group">
+                    <label for="title">Destination Name</label>
+                    <input type="text" id="title" placeholder="e.g. Taj Mahal, Agra" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Selected Coordinates</label>
+                    <div class="coords-display" id="coords-text">No location selected (Click map)</div>
+                    <input type="hidden" id="lat" required>
+                    <input type="hidden" id="lng" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <div class="category-chips" id="category-chips">
+                        <button type="button" class="chip" data-category="landscape">Landscape</button>
+                        <button type="button" class="chip" data-category="moment">Moment</button>
+                        <button type="button" class="chip" data-category="hidden_gem">Gem</button>
+                        <button type="button" class="chip" data-category="food">Food</button>
+                        <button type="button" class="chip" data-category="heritage">Heritage</button>
+                    </div>
+                    <input type="hidden" id="category-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pin-color">Custom Pin Color</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" id="pin-color" value="#2d5a27" class="color-picker-input">
+                        <span class="color-picker-value" id="color-picker-value">#2d5a27</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="caption">Short Story / Experience</label>
+                    <textarea id="caption"
+                        placeholder="Describe the landscape, hidden gems, or your memorable moment..."
+                        required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Photo Upload</label>
+
+                    <div class="upload-container" id="upload-zone">
+                        <span class="upload-icon">Upload Photo</span>
+                        <span class="upload-text">Click to choose landscape photo</span>
+                        <input type="file" id="file-input" accept="image/*" style="display: none;">
+
+                        <div id="preview-container" class="upload-preview">
+                            <img id="preview-img" src="" alt="Preview">
+                            <button type="button" class="remove-preview" id="btn-remove-preview">&times;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="status-indicator" class="status-indicator"></div>
+
+                <button type="submit" id="btn-submit" class="btn-submit">Share Experience</button>
+            </form>
+        </aside>
+
+        <aside class="floating-panel right-panel closed" id="right-panel">
+            <h2 class="section-title">Discover Destinations</h2>
+
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search by destination...">
+            </div>
+
+            <div class="gallery-filters" id="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="landscape">Landscapes</button>
+                <button class="filter-btn" data-filter="moment">Moments</button>
+                <button class="filter-btn" data-filter="hidden_gem">Gems</button>
+                <button class="filter-btn" data-filter="food">Food</button>
+                <button class="filter-btn" data-filter="heritage">Heritages</button>
+            </div>
+
+            <div id="feed-container" class="feed-container">
+                <div class="no-pins-placeholder">Loading shared adventures...</div>
+            </div>
+        </aside>
+
+    </main>
+
+    <button type="button" class="panel-toggle-btn left-toggle" id="left-toggle-btn" title="Toggle Form">
+        Share Adventure
+    </button>
+    <button type="button" class="panel-toggle-btn right-toggle" id="right-toggle-btn" title="Toggle Gallery">
+        Discover Gallery
+    </button>
+
+    <div id="custom-context-menu" class="context-menu">
+        <button type="button" class="context-menu-item" id="context-pin">Pin Location Here</button>
+        <button type="button" class="context-menu-item" id="context-center">Center Map</button>
+        <button type="button" class="context-menu-item" id="context-zoom-in">Zoom In</button>
+        <button type="button" class="context-menu-item" id="context-zoom-out">Zoom Out</button>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="map.js"></script>
+</body>
+
+</html>
