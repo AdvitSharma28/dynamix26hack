@@ -136,10 +136,57 @@
         .scroll-hint.hidden {
             opacity: 0;
         }
+
+        @font-face {
+            font-family: "Ananda Neptouch";
+            src: url("asset/font/Ananda%20Neptouch%202.ttf") format("truetype");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        .site-nav {
+            position: fixed;
+            left: 3.7vw;
+            right: 2.5vw;
+            top: 30px;
+            z-index: 200;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            align-items: start;
+            color: #1a1a1a;
+            font-family: "Ananda Neptouch", serif;
+            font-size: clamp(18px, 1.55vw, 25px);
+            line-height: 1;
+        }
+
+        .site-nav a {
+            color: inherit;
+            text-decoration: none;
+            width: max-content;
+            transition: opacity 0.2s;
+        }
+
+        .site-nav a:hover {
+            opacity: 0.7;
+        }
+
+        .site-nav a:nth-child(1) { justify-self: start; }
+        .site-nav a:nth-child(2),
+        .site-nav a:nth-child(3),
+        .site-nav a:nth-child(4) { justify-self: center; }
+        .site-nav a:nth-child(5) { justify-self: end; }
     </style>
 </head>
 
 <body>
+    <nav class="site-nav" aria-label="Site sections">
+        <a href="/museum">museum</a>
+        <a href="/game">game</a>
+        <a href="/gallery">gallery</a>
+        <a href="/travel">travel</a>
+        <a href="/connect">connect</a>
+    </nav>
 
     <div class="loading-screen" id="loadingScreen">
         <h1 style="font-size: 1.5rem; font-weight: 400; color: #2a2520; letter-spacing: 0.04em;">
@@ -473,40 +520,39 @@
                     const angleStep = (Math.PI * 2) / CONFIG.cols;
 
                     const seeds = [
-                        'asset/images/FESTIVALS/diwali.avif',
-                        'asset/images/FESTIVALS/durgapooja.avif',
-                        'asset/images/FESTIVALS/EID.jpg',
-                        'asset/images/FESTIVALS/ganeshchaturthi.avif',
-                        'asset/images/FESTIVALS/holi.avif',
-                        'asset/images/FESTIVALS/janmasthmi.avif',
-                        'asset/images/FESTIVALS/Navratri (1).jpg',
-                        'asset/images/FESTIVALS/onam.webp',
-                        'asset/images/FESTIVALS/Pongal_fest.jpg',
-                        'asset/images/FESTIVALS/Sankranti.avif',
-                        'asset/images/Food/biryani.jpg',
-                        'asset/images/Food/Butter chicken.jpg',
-                        'asset/images/Food/Dosa.jpg',
-                        'asset/images/Food/Kachori.jpg',
-                        'asset/images/Food/Kulche.jpg',
-                        'asset/images/Food/Panipuri.jpg',
-                        'asset/images/Food/Pav Bhaji.jpg',
-                        'asset/images/Food/Puri.jpg',
-                        'asset/images/Food/Samose.jpg',
-                        'asset/images/Indian cities/Bombay.jpg',
-                        'asset/images/Indian cities/Gurgaon.jpg',
-                        'asset/images/Indian cities/Hyderabad.jpg',
-                        'asset/images/Indian cities/Kerela.jpg',
-                        'asset/images/Indian cities/Maharashtra waterfall.jpg',
-                        'asset/images/Indian cities/Uttrakhand city.jpg',
-                        'asset/images/Monuments/bhawanpalace.jpg',
-                        'asset/images/Monuments/charminar.jpg',
-                        'asset/images/Monuments/hawa mahal.jpg',
-                        'asset/images/Monuments/Humayun Tomb.jpg',
-                        'asset/images/Monuments/India Gate.jpg',
-                        'asset/images/Monuments/jantar mantar.jpg',
-                        'asset/images/Monuments/Khajuraho.jpg',
-                        'asset/images/Monuments/statue of unity.jpg',
-                        'asset/images/Monuments/Taj Mahal.jpg'
+                        'asset/images/Bombay.webp',
+                        'asset/images/Butter chicken.webp',
+                        'asset/images/Dosa.webp',
+                        'asset/images/EID.webp',
+                        'asset/images/Gurgaon.webp',
+                        'asset/images/Humayun Tomb.webp',
+                        'asset/images/Hyderabad.webp',
+                        'asset/images/India Gate.webp',
+                        'asset/images/Kachori.webp',
+                        'asset/images/Kerela.webp',
+                        'asset/images/Khajuraho.webp',
+                        'asset/images/Kulche.webp',
+                        'asset/images/Maharashtra waterfall.webp',
+                        'asset/images/Panipuri.webp',
+                        'asset/images/Pav Bhaji.webp',
+                        'asset/images/Pongal_fest.webp',
+                        'asset/images/Puri.webp',
+                        'asset/images/Samose.webp',
+                        'asset/images/Sankranti.webp',
+                        'asset/images/Taj Mahal.webp',
+                        'asset/images/Uttrakhand city.webp',
+                        'asset/images/bhawanpalace.webp',
+                        'asset/images/biryani.webp',
+                        'asset/images/charminar.webp',
+                        'asset/images/diwali.webp',
+                        'asset/images/durgapooja.webp',
+                        'asset/images/ganeshchaturthi.webp',
+                        'asset/images/hawa mahal.webp',
+                        'asset/images/holi.webp',
+                        'asset/images/janmasthmi.webp',
+                        'asset/images/jantar mantar.webp',
+                        'asset/images/onam.webp',
+                        'asset/images/statue of unity.webp'
                     ];
 
                     for (let row = 0; row < CONFIG.rows; row++) {
