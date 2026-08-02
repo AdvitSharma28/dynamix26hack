@@ -121,7 +121,68 @@
         </div>
     </div>
 
+    <div id="finish-overlay" class="hidden">
+        <button id="finish-close-btn" type="button" aria-label="Close">&#10005;</button>
+        <video id="finish-video" src="asset/hayan winner.mp4" autoplay></video>
+    </div>
+    <div id="confetti-layer"></div>
+
     <script src="game.js"></script>
+    <script>
+        (function () {
+            const TRIGGER_WORD = "finsih";
+            let typedBuffer = "";
+
+            const overlay = document.getElementById("finish-overlay");
+            const video = document.getElementById("finish-video");
+            const closeBtn = document.getElementById("finish-close-btn");
+            const confettiLayer = document.getElementById("confetti-layer");
+
+            function showFinishOverlay() {
+                overlay.classList.remove("hidden");
+                video.currentTime = 0;
+                video.play();
+                launchConfetti();
+            }
+
+            function hideFinishOverlay() {
+                overlay.classList.add("hidden");
+                video.pause();
+            }
+
+            closeBtn.addEventListener("click", hideFinishOverlay);
+
+            window.addEventListener("keydown", function (e) {
+                // ignore if typing inside an editable field (like the player-name spans)
+                if (document.activeElement && document.activeElement.isContentEditable) return;
+                if (e.key.length !== 1) return; // ignore shift, enter, etc.
+
+                typedBuffer = (typedBuffer + e.key.toLowerCase()).slice(-TRIGGER_WORD.length);
+                if (typedBuffer === TRIGGER_WORD) {
+                    showFinishOverlay();
+                    typedBuffer = "";
+                }
+            });
+
+            function launchConfetti() {
+                const colors = ["#f94144", "#f3722c", "#f9c74f", "#90be6d", "#577590", "#f9844a"];
+                const pieceCount = 80;
+
+                for (let i = 0; i < pieceCount; i++) {
+                    const piece = document.createElement("div");
+                    piece.className = "confetti-piece";
+                    piece.style.left = Math.random() * 100 + "vw";
+                    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    piece.style.animationDuration = (2 + Math.random() * 1.5) + "s";
+                    piece.style.animationDelay = (Math.random() * 0.4) + "s";
+                    piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    confettiLayer.appendChild(piece);
+
+                    setTimeout(() => piece.remove(), 4000);
+                }
+            }
+        })();
+    </script>
 </body>
 
 </html>
