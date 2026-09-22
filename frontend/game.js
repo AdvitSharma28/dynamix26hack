@@ -1,51 +1,51 @@
 const boardTiles = [
-
     { id: 0, name: "Go", type: "corner", x: 93.5, y: 93.5 },
-    { id: 1, name: "Taj Mahal", type: "property", price: 600, image: "asset/monopoly/board assets/monument cards/taj mahal.png", x: 82.89, y: 93.5 },
+
+    { id: 1, name: "Kelpie", type: "property", price: 600, image: "asset/monopoly/board assets/food cards/kelpie.png", x: 82.89, y: 93.5 },
     { id: 2, name: "Reward", type: "reward", image: "asset/monopoly/board assets/Reward/Frame 11.png", x: 74.67, y: 93.5 },
-    { id: 3, name: "Holi", type: "property", price: 400, image: "asset/monopoly/board assets/Festival Cards/holi.png", x: 66.45, y: 93.5 },
+    { id: 3, name: "Holi", type: "property", price: 400, image: "asset/monopoly/board assets/festival cards/holi.png", x: 66.45, y: 93.5 },
     { id: 4, name: "Challenge Quiz", type: "challenge", x: 58.23, y: 93.5 },
-    { id: 5, name: "Biryani", type: "property", price: 200, image: "asset/monopoly/board assets/food cards/biryani.png", x: 50.01, y: 93.5 },
-    { id: 6, name: "Qutub Minar", type: "property", price: 100, image: "asset/monopoly/board assets/monument cards/qutub minar.png", x: 41.79, y: 93.5 },
+    { id: 5, name: "Fenrir", type: "property", price: 200, image: "asset/monopoly/board assets/food cards/fenrir.png", x: 50.01, y: 93.5 },
+    { id: 6, name: "Garuda", type: "property", price: 100, image: "asset/monopoly/board assets/food cards/garuda.png", x: 41.79, y: 93.5 },
     { id: 7, name: "Challenge Quiz", type: "challenge", x: 33.57, y: 93.5 },
-    { id: 8, name: "Dosa and Sambhar", type: "property", price: 100, image: "asset/monopoly/board assets/food cards/dosasambhar.png", x: 25.35, y: 93.5 },
-    { id: 9, name: "Red Fort", type: "property", price: 120, image: "asset/monopoly/board assets/monument cards/redfort.png", x: 17.13, y: 93.5 },
+    { id: 8, name: "Jormungandr", type: "property", price: 100, image: "asset/monopoly/board assets/food cards/jormungandr.png", x: 25.35, y: 93.5 },
+    { id: 9, name: "Sphinx", type: "property", price: 120, image: "asset/monopoly/board assets/food cards/sphinx.png", x: 17.13, y: 93.5 },
 
     { id: 10, name: "Just Visiting / Jail", type: "corner", x: 6.5, y: 93.5 },
 
-    { id: 11, name: "India Gate", type: "property", price: 140, image: "asset/monopoly/board assets/monument cards/india gate.png", x: 6.5, y: 82.89 },
+    { id: 11, name: "Phoenix", type: "property", price: 140, image: "asset/monopoly/board assets/food cards/phoenix.png", x: 6.5, y: 82.89 },
     { id: 12, name: "Reward", type: "reward", image: "asset/monopoly/board assets/Reward/Frame 11.png", x: 6.5, y: 74.67 },
-    { id: 13, name: "Ganesh Chaturthi", type: "property", price: 140, image: "asset/monopoly/board assets/Festival Cards/Ganesh Chaturthi.png", x: 6.5, y: 66.45 },
-    { id: 14, name: "Rogan Josh", type: "property", price: 160, image: "asset/monopoly/board assets/food cards/roganjosh.png", x: 6.5, y: 58.23 },
+    { id: 13, name: "Ganesh Chaturthi", type: "property", price: 140, image: "asset/monopoly/board assets/festival cards/Ganesh Chaturthi.png", x: 6.5, y: 66.45 },
+    { id: 14, name: "Dragon", type: "property", price: 160, image: "asset/monopoly/board assets/food cards/dragon.png", x: 6.5, y: 58.23 },
     { id: 15, name: "Challenge Quiz", type: "challenge", x: 6.5, y: 50.01 },
-    { id: 16, name: "Sambar Vadai", type: "property", price: 180, image: "asset/monopoly/board assets/food cards/vada.png", x: 6.5, y: 41.79 },
+    { id: 16, name: "Tanabata", type: "property", price: 180, image: "asset/monopoly/board assets/festival cards/tanabata.png", x: 6.5, y: 41.79 },
     { id: 17, name: "Reward", type: "reward", image: "asset/monopoly/board assets/Reward/Frame 11.png", x: 6.5, y: 33.57 },
-    { id: 18, name: "Golden Temple", type: "property", price: 180, image: "asset/monopoly/board assets/monument cards/golden temple.png", x: 6.5, y: 25.35 },
-    { id: 19, name: "Eid Al Fitr", type: "property", price: 200, image: "asset/monopoly/board assets/Festival Cards/eid.png", x: 6.5, y: 17.13 },
+    { id: 18, name: "Samhain", type: "property", price: 180, image: "asset/monopoly/board assets/festival cards/samhain.png", x: 6.5, y: 25.35 },
+    { id: 19, name: "Eid Al Fitr", type: "property", price: 200, image: "asset/monopoly/board assets/festival cards/eid.png", x: 6.5, y: 17.13 },
 
     { id: 20, name: "Free Parking", type: "corner", x: 6.5, y: 6.5 },
 
-    { id: 21, name: "Onam", type: "property", price: 200, image: "asset/monopoly/board assets/Festival Cards/Oam.png", x: 17.13, y: 6.5 },
+    { id: 21, name: "Chinese New Year", type: "property", price: 220, image: "asset/monopoly/board assets/festival cards/chinese new year.png", x: 17.13, y: 6.5 },
     { id: 22, name: "Challenge Quiz", type: "challenge", x: 25.35, y: 6.5 },
-    { id: 23, name: "Amer Fort", type: "property", price: 220, image: "asset/monopoly/board assets/monument cards/amer fort.png", x: 33.57, y: 6.5 },
-    { id: 24, name: "Pani Puri", type: "property", price: 240, image: "asset/monopoly/board assets/food cards/daal bhati churma.png", x: 41.79, y: 6.5 },
+    { id: 23, name: "Dia de los Muertos", type: "property", price: 220, image: "asset/monopoly/board assets/festival cards/diadelos.png", x: 33.57, y: 6.5 },
+    { id: 24, name: "Hindu Mythology", type: "property", price: 240, image: "asset/monopoly/board assets/monument cards/hindu.png", x: 41.79, y: 6.5 },
     { id: 25, name: "Reward", type: "reward", image: "asset/monopoly/board assets/Reward/Frame 11.png", x: 50.01, y: 6.5 },
-    { id: 26, name: "Char Minar", type: "property", price: 260, image: "asset/monopoly/board assets/monument cards/charminar.png", x: 58.23, y: 6.5 },
-    { id: 27, name: "Dal Bati Churma", type: "property", price: 260, image: "asset/monopoly/board assets/food cards/daal bhati churma-1.png", x: 66.45, y: 6.5 },
+    { id: 26, name: "Norse Mythology", type: "property", price: 260, image: "asset/monopoly/board assets/monument cards/norse.png", x: 58.23, y: 6.5 },
+    { id: 27, name: "Greek Mythology", type: "property", price: 260, image: "asset/monopoly/board assets/monument cards/greek.png", x: 66.45, y: 6.5 },
     { id: 28, name: "Challenge Quiz", type: "challenge", x: 74.67, y: 6.5 },
-    { id: 29, name: "Navratri", type: "property", price: 280, image: "asset/monopoly/board assets/Festival Cards/Navratri.png", x: 82.89, y: 6.5 },
+    { id: 29, name: "Chinese Mythology", type: "property", price: 280, image: "asset/monopoly/board assets/monument cards/chinese.png", x: 82.89, y: 6.5 },
 
     { id: 30, name: "Go To Jail", type: "corner", x: 93.5, y: 6.5 },
 
-    { id: 31, name: "Butter Chicken", type: "property", price: 300, image: "asset/monopoly/board assets/food cards/daal bhati churma-2.png", x: 93.5, y: 17.13 },
-    { id: 32, name: "Challenge Question", type: "challenge", x: 93.5, y: 25.35 },
+    { id: 31, name: "Japanese Mythology", type: "property", price: 300, image: "asset/monopoly/board assets/monument cards/japanese.png", x: 93.5, y: 17.13 },
+    { id: 32, name: "Challenge Quiz", type: "challenge", x: 93.5, y: 25.35 },
     { id: 33, name: "Reward", type: "reward", image: "asset/monopoly/board assets/Reward/Frame 11.png", x: 93.5, y: 33.57 },
-    { id: 34, name: "Diwali", type: "property", price: 320, image: "asset/monopoly/board assets/Festival Cards/diwali.png", x: 93.5, y: 41.79 },
+    { id: 34, name: "Diwali", type: "property", price: 320, image: "asset/monopoly/board assets/festival cards/diwali.png", x: 93.5, y: 41.79 },
     { id: 35, name: "Reward", type: "reward", image: "asset/monopoly/board assets/Reward/Frame 11.png", x: 93.5, y: 50.01 },
-    { id: 36, name: "Challenge Questions", type: "challenge", x: 93.5, y: 58.23 },
-    { id: 37, name: "Raksha Bandhan", type: "property", price: 350, image: "asset/monopoly/board assets/Festival Cards/rakshabandhan.png", x: 93.5, y: 66.45 },
+    { id: 36, name: "Challenge Quiz", type: "challenge", x: 93.5, y: 58.23 },
+    { id: 37, name: "Yoruba Mythology", type: "property", price: 350, image: "asset/monopoly/board assets/monument cards/yoruba.png", x: 93.5, y: 66.45 },
     { id: 38, name: "Reward", type: "reward", image: "asset/monopoly/board assets/Reward/Frame 11.png", x: 93.5, y: 74.67 },
-    { id: 39, name: "Konark Sun Temple", type: "property", price: 400, image: "asset/monopoly/board assets/monument cards/konark sun temple.png", x: 93.5, y: 82.89 }
+    { id: 39, name: "Mesopotamian Mythology", type: "property", price: 400, image: "asset/monopoly/board assets/monument cards/Mesopotamian.png", x: 93.5, y: 82.89 }
 ];
 
 const challengeImages = [
@@ -59,8 +59,8 @@ const challengeImages = [
 ];
 
 const players = [
-    { id: 0, name: "naman", money: 1000, position: 0, avatar: "asset/game character/char1.webp", properties: [] },
-    { id: 1, name: "hayan", money: 1000, position: 0, avatar: "asset/game character/char2.webp", properties: [] }
+    { id: 0, name: "DX Player one", money: 1000, position: 0, avatar: "asset/game character/char1.webp", properties: [] },
+    { id: 1, name: "DX Player two", money: 1000, position: 0, avatar: "asset/game character/char2.webp", properties: [] }
 ];
 
 let challengeAnswers = {};
@@ -241,7 +241,7 @@ function handleTileAction(player, tile) {
             ]);
         } else if (owner.id !== player.id) {
 
-            const rent = Math.floor(tile.price * 0.1);
+            const rent = Math.floor(tile.price * 0.5);
             showModal(tile.name, tile.image, [
                 { text: `Pay Rent M${rent} to ${owner.name}`, class: "btn-primary", onClick: () => payRent(player, owner, rent) }
             ]);

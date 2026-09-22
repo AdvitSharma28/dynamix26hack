@@ -152,7 +152,7 @@
             top: 30px;
             z-index: 200;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
             align-items: start;
             color: #1a1a1a;
             font-family: "Ananda Neptouch", serif;
@@ -173,9 +173,8 @@
 
         .site-nav a:nth-child(1) { justify-self: start; }
         .site-nav a:nth-child(2),
-        .site-nav a:nth-child(3),
-        .site-nav a:nth-child(4) { justify-self: center; }
-        .site-nav a:nth-child(5) { justify-self: end; }
+        .site-nav a:nth-child(3) { justify-self: center; }
+        .site-nav a:nth-child(4) { justify-self: end; }
     </style>
 </head>
 
@@ -184,13 +183,13 @@
         <a href="/museum">museum</a>
         <a href="/game">game</a>
         <a href="/gallery">gallery</a>
-        <a href="/travel">travel</a>
-        <a href="/connect">connect</a>
+        <a href="/encyclopedia">encyclopedia</a>
+        
     </nav>
 
     <div class="loading-screen" id="loadingScreen">
         <h1 style="font-size: 1.5rem; font-weight: 400; color: #2a2520; letter-spacing: 0.04em;">
-            indian<br>gallery
+            Photo<br>gallery
         </h1>
         <div class="loading-bar-container">
             <div class="loading-bar" id="loadingBar"></div>
@@ -520,40 +519,37 @@
                     const angleStep = (Math.PI * 2) / CONFIG.cols;
 
                     const seeds = [
-                        'asset/images/Bombay.webp',
-                        'asset/images/Butter chicken.webp',
-                        'asset/images/Dosa.webp',
-                        'asset/images/EID.webp',
-                        'asset/images/Gurgaon.webp',
-                        'asset/images/Humayun Tomb.webp',
-                        'asset/images/Hyderabad.webp',
-                        'asset/images/India Gate.webp',
-                        'asset/images/Kachori.webp',
-                        'asset/images/Kerela.webp',
-                        'asset/images/Khajuraho.webp',
-                        'asset/images/Kulche.webp',
-                        'asset/images/Maharashtra waterfall.webp',
-                        'asset/images/Panipuri.webp',
-                        'asset/images/Pav Bhaji.webp',
-                        'asset/images/Pongal_fest.webp',
-                        'asset/images/Puri.webp',
-                        'asset/images/Samose.webp',
-                        'asset/images/Sankranti.webp',
-                        'asset/images/Taj Mahal.webp',
-                        'asset/images/Uttrakhand city.webp',
-                        'asset/images/bhawanpalace.webp',
-                        'asset/images/biryani.webp',
-                        'asset/images/charminar.webp',
-                        'asset/images/diwali.webp',
-                        'asset/images/durgapooja.webp',
-                        'asset/images/ganeshchaturthi.webp',
-                        'asset/images/hawa mahal.webp',
-                        'asset/images/holi.webp',
-                        'asset/images/janmasthmi.webp',
-                        'asset/images/jantar mantar.webp',
-                        'asset/images/onam.webp',
-                        'asset/images/statue of unity.webp'
-                    ];
+                 'asset/images/5-most-important-mythical-creatures-norse-mythology-northlord-mythology-giant_1200x1200.webp',
+                 'asset/images/Amaterasu_cave_1.webp',
+                  'asset/images/chinese.webp',
+                  'asset/images/diwali.webp',
+                  'asset/images/Dragon-Mythology-across-cultures-Hero-Image-1210x700.webp',
+                  'asset/images/durgapooja.webp',
+                  'asset/images/EID.webp',
+                  'asset/images/Fenrir.webp',
+                  'asset/images/festuvalchina.webp',
+                  'asset/images/filters_quality(75).webp',
+                  'asset/images/ganeshchaturthi.webp',
+                  'asset/images/greek.webp',
+                  'asset/images/greekfestival.webp',
+                  'asset/images/greek_general.webp',
+                  'asset/images/Griffin.webp',
+                  'asset/images/hindumythology.webp',
+                  'asset/images/holi.webp',
+                  'asset/images/janmasthmi.webp',
+                  'asset/images/japanesefestival.webp',
+                  'asset/images/japaneses.webp',
+                  'asset/images/Jormungandr.webp',
+                  'asset/images/kelpie.webp',
+                  'asset/images/Khajuraho.webp',
+                  'asset/images/Loki-The-Norse-God-With-His-Wolf.webp',
+                  'asset/images/Nidhoggr.webp',
+                  'asset/images/norse.webp',
+                  'asset/images/odin-5638.webp',
+                  'asset/images/onam.webp',
+                  'asset/images/Pongal_fest.webp',
+                  'asset/images/Thor.webp'
+];
 
                     for (let row = 0; row < CONFIG.rows; row++) {
                         for (let col = 0; col < CONFIG.cols; col++) {
