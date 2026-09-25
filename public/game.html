@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=EB+Garamond:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+    <nav class="site-nav" aria-label="Site sections">
+        <a href="/museum">museum</a>
+        <a href="/game">game</a>
+        <a href="/gallery">gallery</a>
+        <a href="/encyclopedia">encyclopedia</a>
+ 
+    </nav>
+
+    <div class="game-container">
+
+        <div class="board-area">
+            <div id="board">
+
+            </div>
+        </div>
+
+        <div class="side-panel">
+            <h1 class="main-title">Minigame</h1>
+
+            <div class="dice-section">
+                <div class="player-dice-area" id="p1-area">
+                    <div class="dice-box" id="dice-p0">
+                        <div class="dice-face" id="dice-face-p0">
+
+                        </div>
+                    </div>
+                    <p class="player-name-wrap">
+                        <span class="player-name" data-player-id="0" contenteditable="true"
+                            spellcheck="false">naman</span>
+                        <button class="edit-name-button" type="button" data-player-id="0"
+                            aria-label="Edit naman name">edit</button>
+                    </p>
+                </div>
+
+                <div class="player-dice-area" id="p2-area">
+                    <div class="dice-box" id="dice-p1">
+                        <div class="dice-face" id="dice-face-p1">
+
+                        </div>
+                    </div>
+                    <p class="player-name-wrap">
+                        <span class="player-name" data-player-id="1" contenteditable="true"
+                            spellcheck="false">hayan</span>
+                        <button class="edit-name-button" type="button" data-player-id="1"
+                            aria-label="Edit hayan name">edit</button>
+                    </p>
+                </div>
+            </div>
+
+            <button id="roll-btn" style="display:none;">Roll</button>
+            <button id="end-turn-btn" class="end-turn-elegant">End Turn</button>
+
+            <div class="property-lists-container">
+                <div class="property-panel" id="panel-p0">
+                    <h3>
+                        <span class="player-name-wrap">
+                            <span class="player-name" data-player-id="0" contenteditable="true"
+                                spellcheck="false">naman</span>
+                            <button class="edit-name-button" type="button" data-player-id="0"
+                                aria-label="Edit naman name">edit</button>
+                        </span>
+                        Property
+                    </h3>
+                    <div class="property-list" id="player-0-props-list">
+
+                    </div>
+
+                    <span id="player-0-money" style="display:none;">1500</span>
+                    <span id="player-0-props" style="display:none;"></span>
+                </div>
+
+                <div class="property-panel" id="panel-p1">
+                    <h3>
+                        <span class="player-name-wrap">
+                            <span class="player-name" data-player-id="1" contenteditable="true"
+                                spellcheck="false">hayan</span>
+                            <button class="edit-name-button" type="button" data-player-id="1"
+                                aria-label="Edit hayan name">edit</button>
+                        </span>
+                        Property
+                    </h3>
+                    <div class="property-list" id="player-1-props-list">
+
+                    </div>
+                    <span id="player-1-money" style="display:none;">1500</span>
+                    <span id="player-1-props" style="display:none;"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="card-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Action Required</h2>
+            <div class="modal-image-container" id="modal-image-container">
+                <img id="modal-image" src="" alt="Card Image" />
+                <div id="image-click-zones" style="display: none;">
+                    <div class="click-zone zone-a" data-choice="A"></div>
+                    <div class="click-zone zone-b" data-choice="B"></div>
+                    <div class="click-zone zone-c" data-choice="C"></div>
+                    <div class="click-zone zone-d" data-choice="D"></div>
+                </div>
+            </div>
+            <div id="modal-actions" class="modal-actions">
+
+            </div>
+        </div>
+    </div>
+
+    <div id="finish-overlay" class="hidden">
+        <button id="finish-close-btn" type="button" aria-label="Close">&#10005;</button>
+        <video id="finish-video" src="asset/winner.mp4" autoplay></video>
+    </div>
+    <div id="confetti-layer"></div>
+
+    <script src="game.js"></script>
+    <script>
+        (function () {
+            const TRIGGER_WORD = "finsih";
+            let typedBuffer = "";
+
+            const overlay = document.getElementById("finish-overlay");
+            const video = document.getElementById("finish-video");
+            const closeBtn = document.getElementById("finish-close-btn");
+            const confettiLayer = document.getElementById("confetti-layer");
+
+            function showFinishOverlay() {
+                overlay.classList.remove("hidden");
+                video.currentTime = 0;
+                video.play();
+                launchConfetti();
+            }
+
+            function hideFinishOverlay() {
+                overlay.classList.add("hidden");
+                video.pause();
+            }
+
+            closeBtn.addEventListener("click", hideFinishOverlay);
+
+            window.addEventListener("keydown", function (e) {
+                // ignore if typing inside an editable field (like the player-name spans)
+                if (document.activeElement && document.activeElement.isContentEditable) return;
+                if (e.key.length !== 1) return; // ignore shift, enter, etc.
+
+                typedBuffer = (typedBuffer + e.key.toLowerCase()).slice(-TRIGGER_WORD.length);
+                if (typedBuffer === TRIGGER_WORD) {
+                    showFinishOverlay();
+                    typedBuffer = "";
+                }
+            });
+
+            function launchConfetti() {
+                const colors = ["#f94144", "#f3722c", "#f9c74f", "#90be6d", "#577590", "#f9844a"];
+                const pieceCount = 80;
+
+                for (let i = 0; i < pieceCount; i++) {
+                    const piece = document.createElement("div");
+                    piece.className = "confetti-piece";
+                    piece.style.left = Math.random() * 100 + "vw";
+                    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    piece.style.animationDuration = (2 + Math.random() * 1.5) + "s";
+                    piece.style.animationDelay = (Math.random() * 0.4) + "s";
+                    piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    confettiLayer.appendChild(piece);
+
+                    setTimeout(() => piece.remove(), 4000);
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>
