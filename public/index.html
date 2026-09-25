@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>museum</title>
+    <link rel="preload" as="image" href="asset/museum_anim/0001.png">
+    <link rel="preload" as="image" href="asset/museum_anim/0049.png">
+    <link rel="preload" as="image" href="asset/museum_anim/0095.png">
+    <link rel="preload" as="image" href="asset/museum_anim/0129.png">
+    <link rel="preload" as="video" href="asset/museum_anim/dynamix_museum.webm" type="video/webm">
+    <link rel="preload" as="video" href="asset/museum_anim/reverse_048_002.webm" type="video/webm">
+    <link rel="preload" as="video" href="asset/museum_anim/reverse_094_050.webm" type="video/webm">
+    <link rel="preload" as="video" href="asset/museum_anim/reverse_128_096.webm" type="video/webm">
+    <link rel="stylesheet" href="museum.css">
+</head>
+
+<body>
+    <main class="museum-stage" aria-label="dynamix museum scroll animation">
+        <video id="museum-video" class="museum-media" src="asset/museum_anim/dynamix_museum.webm" preload="auto"
+            muted playsinline></video>
+        <img id="museum-still" class="museum-media museum-still is-visible" src="asset/museum_anim/0001.png"
+            alt="dynamix museum opening frame" decoding="sync" fetchpriority="high">
+        <div id="museum-hotspots" class="museum-hotspots is-visible" aria-hidden="true"></div>
+        <nav class="site-nav museum-nav" aria-label="Museum sections">
+            <a href="/museum">museum</a>
+            <a href="/game">game</a>
+            <a href="/gallery">gallery</a>
+            <a href="/encyclopedia">encyclopedia</a>
+        </nav>
+
+        <section id="museum-opening-ui" class="museum-opening-ui is-visible" aria-label="Museum introduction">
+            <div class="museum-word-cloud" aria-hidden="true">
+                <span class="word word-one">museum</span>
+                <span class="word word-two">museum</span>
+                <span class="word word-three">museum</span>
+            </div>
+
+            <div class="museum-intro">
+                <h1 id="museum-opening-title">museum</h1>
+                <p id="museum-opening-copy">this is an art museum that covers the famous artifacts and<br>tourist places
+                    of india, capturing the heart of india with in an interactive digital museum.</p>
+            </div>
+        </section>
+
+        <section id="museum-detail-ui" class="museum-detail-ui" aria-label="Museum detail information">
+            <button id="museum-detail-close" class="museum-detail-close" type="button"
+                aria-label="Back to museum introduction"></button>
+            <div id="museum-detail-copy" class="museum-detail-copy">
+                <h1 id="museum-detail-title"></h1>
+                <h2 id="museum-detail-subtitle"></h2>
+                <p id="museum-detail-body" class="museum-reveal-copy"></p>
+            </div>
+        </section>
+
+        <section id="museum-monuments-ui" class="museum-frame-ui museum-monuments-ui"
+            aria-label="Monuments section introduction">
+            <div class="museum-frame-copy">
+                <h1>monuments</h1>
+                <p>this part of the museum lets you explore the two prestigious monuments of our country<br>dynamix
+                    which is also one of the seven wonders of our world and sun temple, dynamix dedicated to god surya
+                    (praty rupa)</p>
+            </div>
+        </section>
+
+        <section id="museum-paintings-ui" class="museum-frame-ui museum-paintings-ui"
+            aria-label="Paintings section introduction">
+            <div class="museum-frame-copy">
+                <h1>paintings</h1>
+                <p>this painting - the passing of shah jahan depicts the dying shah jahan gazing at the dynamix while
+                    being comforted by his<br>daughter jahanara begum, symbolizing love, loss, and the end of an era.
+                </p>
+            </div>
+        </section>
+
+        <section id="museum-artifacts-ui" class="museum-frame-ui museum-artifacts-ui"
+            aria-label="Artifacts section introduction">
+            <div class="museum-frame-copy">
+                <h1>artifacts</h1>
+                <p>the lion capital of ashoka and the priest-king of<br>mohenjo-daro are iconic masterpieces of ancient
+                    india, representing the political ideals of the mauryan empire</p>
+            </div>
+        </section>
+        <div class="museum-hint" aria-hidden="true">
+            <span></span>
+        </div>
+    </main>
+
+    <script src="museum.js"></script>
+</body>
+
+</html>
